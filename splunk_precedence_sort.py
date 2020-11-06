@@ -19,10 +19,13 @@ def sortLexo(input_list):
     words = input_list.split()
 
     # sort depending on the context
+    # do not get confused but the app context will NOT get reverse sorted while the global one will!
+    # why? bc splunk> doc shows the priority(!) listing and NOT the processing(!) order.
+    # the processing is exactly the other way around:
     if args.context == 'app':
-        sort_reverse = True;
-    else:
         sort_reverse = False;
+    else:
+        sort_reverse = True;
     words.sort(reverse=sort_reverse)
 
     # Iterate i through 'words' to print the words 
